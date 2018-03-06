@@ -1,4 +1,4 @@
-import ActiveCampaign = require('activecampaign');
+const ActiveCampaign = require('activecampaign');
 
 export const ACList = {
   CACHOUT_WAITLIST: 48
