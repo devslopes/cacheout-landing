@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './home-page/navbar/navbar.component';
 import { BodyComponent } from './home-page/body/body.component';
 import { FooterComponent } from './home-page/footer/footer.component';
 
+import { RecaptchaModule } from 'ng-recaptcha';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,9 @@ import { FooterComponent } from './home-page/footer/footer.component';
     FooterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    RecaptchaModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

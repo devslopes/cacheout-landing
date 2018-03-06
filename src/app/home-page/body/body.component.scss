@@ -21,13 +21,16 @@
     flex-direction: row;
     padding: 1.5rem 0;
     justify-content: center;
+    color: white;
     .sub-text {
       flex-basis: 50%;
       font-weight: lighter;
       font-size: 1.2rem;
-      color: white;
       text-align: center;
-
+    }
+    .sub-text-blue {
+      @extend .sub-text;
+      color: #56A6B1;
     }
   }
   .input-wrapper {
@@ -57,7 +60,7 @@
           border-radius: 2px;
           background-color: #56A6B1;
           border: 1px solid rgba(0, 0, 0, 0);
-          font-size: 0.75rem;
+          font-size: 1rem;
         }
       }
     }

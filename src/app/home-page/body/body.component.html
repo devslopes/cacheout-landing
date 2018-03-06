@@ -5,15 +5,25 @@
   <div class="subtext-wrapper">
     <div class="sub-text">Cacheout is a platform where developers can be rewarded by helping others solve their code problems</div>
   </div>
-  <div class="input-wrapper">
-    <form>
+  <div class="input-wrapper" *ngIf="!submitted">
+    <form #emailForm="ngForm" (ngSubmit)="onSubmit()" action="?" method="POST">
       <label>*email
-        <input>
+        <input [(ngModel)]="email" type="email" name="email" required>
       </label>
       <div class="button-wrapper">
-        <button>Join waitlist</button>
+        <re-captcha *ngIf="joinClicked"
+          (resolved)="resolved($event)"
+          name="captcha"
+          siteKey="6Lf50koUAAAAAH3--_CkwtGZruuXN4lBXbNR2kxy"
+        ></re-captcha>
+        <button type="submit" [disabled]="!emailForm.form.valid" *ngIf="!joinClicked">Join waitlist</button>
       </div>
     </form>
+  </div>
+  <div class="subtext-wrapper">
+    <div class="sub-text-blue" *ngIf="submitted">
+      You're email has been submitted. <br> We will make announcements as we get closer to launch!
+    </div>
   </div>
   <div class="img-wrapper">
     <div class="img-sizer">
