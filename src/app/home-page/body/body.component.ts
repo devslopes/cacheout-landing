@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { cacheoutWaitlist } from '../../../util/active-campaign';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-body',
@@ -11,7 +11,10 @@ export class BodyComponent implements OnInit {
   email = '';
   joinClicked = false;
   submitted = false;
-  constructor() { }
+
+  constructor(private http: HttpClient) {
+  }
+
   ngOnInit() {}
 
   onSubmit = () => {
@@ -25,10 +28,15 @@ export class BodyComponent implements OnInit {
 
   resolved = (captchaResponse: string) => {
     if (captchaResponse) {
-      cacheoutWaitlist(this.email);
+      this.submitEmail();
       this.email = '';
       this.submitted = true;
     }
+  }
+
+  submitEmail = () => {
+    this.http.post(`https://api.devslopes.com/v1/defaults/join-cacheout-waitlist/${this.email}`, {})
+      .subscribe(result => {}, err => {});
   }
 
   validateEmail = (email: string) => {
