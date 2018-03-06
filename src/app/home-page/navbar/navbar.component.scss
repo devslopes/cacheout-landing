@@ -2,25 +2,36 @@ nav {
   display: flex;
   flex-direction: row;
   background-color: #323F56;
-  padding: .75rem 8rem;
+  padding: .75rem;
   font-family: 'Nunito', sans-serif;
-  img {
-    padding: 0 .5rem 0 1rem;
-    align-self: center;
-  }
-  .title {
-    font-weight: bold;
-    font-size: 1.5rem;
-    color: white;
-    text-decoration: none;
-    align-self: center;
-    span {
-      color: #56A6B1;
+  .brand-wrapper {
+    padding-left: 4rem;
+    display: flex;
+    img {
+      padding: 0 .5rem 0 1rem;
+      align-self: center;
+    }
+    .title {
       font-weight: bold;
-      font-size: 0.75rem;
-      position: relative;
-      top: -5px;
+      font-size: 1.5rem;
+      color: white;
+      text-decoration: none;
+      align-self: center;
+      span {
+        color: #56A6B1;
+        font-weight: bold;
+        font-size: 0.75rem;
+        position: relative;
+        top: -5px;
+      }
     }
   }
+}
 
+@media (max-width: 599px) {
+  nav {
+    .brand-wrapper {
+      padding-left: 0;
+    }
+  }
 }
